@@ -20,15 +20,15 @@ app.use("/courses", courseRouter);
 app.use("/reviews", reviewRouter);
 app.use("/reports", reportRouter);
 
-app.listen(process.env.PORT,async()=>{
-    try {
-        await connection;
-        console.log("DB is connected")
-        console.log(`server is running at port http://localhost:${process.env.PORT}`)
-    } catch (error) {
-        console.log(error)
-    }
-})
+// app.listen(process.env.PORT,async()=>{
+//     try {
+//         await connection;
+//         console.log("DB is connected")
+//         console.log(`server is running at port http://localhost:${process.env.PORT}`)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 const handler =serverless(app);
 
