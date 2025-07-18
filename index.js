@@ -30,14 +30,14 @@ app.use("/reports", reportRouter);
 //     }
 // })
 
-const handler =serverless(app);
+// const handler =serverless(app);
 
 
-handler = async (event, context) => {
-  // you can do other things here
-  const result = await handler(event, context);
-  // and here
-  return result;
-};
+// handler = async (event, context) => {
+//   // you can do other things here
+//   const result = await handler(event, context);
+//   // and here
+//   return result;
+// };
 
-module.exports=handler;
+module.exports=serverless(app);
