@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const { connection } = require("./db");
+const { connectDB } = require("./db");
 const serverless = require("serverless-http");
 const { courseRouter } = require("./routes/courses.routes");
 const { reviewRouter } = require("./routes/reviews.routes");
@@ -20,12 +20,13 @@ app.use("/reviews", reviewRouter);
 app.use("/reports", reportRouter);
 
 // Connect to DB (run once when the function container initializes)
+
+
 (async () => {
   try {
-    await connection;
-    console.log("DB is connected");
-  } catch (error) {
-    console.log("DB connection error:", error);
+    await connectDB(); // ⛳ called only once
+  } catch (err) {
+    console.error("DB connection failed:", err);
   }
 })();
 
