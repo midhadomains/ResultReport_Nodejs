@@ -30,7 +30,7 @@ app.use("/reports", reportRouter);
 //     }
 // })
 
-const handler =serverless(app);
+let handler =serverless(app);
 
 
 module.exports = handler = async (event, context) => {
