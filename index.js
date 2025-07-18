@@ -2,7 +2,7 @@ const express=require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { connection } = require("./db");
-//const serverless = require("serverless-http")
+const serverless = require("serverless-http")
 const { courseRouter} = require("./routes/courses.routes");
 const { reviewRouter} = require("./routes/reviews.routes");
 const { reportRouter} = require("./routes/report.routes")
@@ -30,12 +30,12 @@ app.listen(process.env.PORT,async()=>{
     }
 })
 
-// const handler =serverless(app);
+const handler =serverless(app);
 
 
-// module.exports.handler = async (event, context) => {
-//   // you can do other things here
-//   const result = await handler(event, context);
-//   // and here
-//   return result;
-// };
+module.exports.handler = async (event, context) => {
+  // you can do other things here
+  const result = await handler(event, context);
+  // and here
+  return result;
+};
